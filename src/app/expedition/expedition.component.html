@@ -1,0 +1,121 @@
+<main>
+    <div class="position-relative">
+      <!-- shape Hero -->
+      <section class="section section-lg section-shaped pb-250">
+        <div class="shape shape-style-1 shape-default">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="container py-lg-md d-flex">
+          <div class="col px-0">
+            <div class="row">
+              <div class="col-12">
+                <div class="card" style="padding: 40px;">
+                  <h3 style="text-align: center;">Expedition</h3>
+                  <form  #myForm="ngForm" (ngSubmit)="save1()">
+        
+                    <div class="row">
+                      <div class="col-6">
+                        <label for="">Fournisseur</label>
+                        <select class="form-control" [(ngModel)]="select" name="four"  aria-label="Default select example" required #four="ngModel">
+                          
+                          <option *ngFor="let item of fournisseurs" [value]="item.idFournisseur">{{item.nom}}</option>
+                          <span style="color:red;" *ngIf="four.invalid && four?.touched &&four.errors?.['required']">Selectionner le fournisseur</span>
+
+                       
+                        </select>
+                      </div>
+                      <div class="col-6">
+                        <label for="">Numéro BL</label>
+                        <input name="bl" [(ngModel)]="rec.bl" type="text" class="form-control" required #bl="ngModel">
+                        <span style="color:red;" *ngIf="bl.invalid && bl?.touched &&bl.errors?.['required']">Le Numero BL est obligatoire</span>
+
+                      </div>
+                      <div class="col-12" style="margin-top: 15px;">
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-check">
+                              <input (change)="bacsChange($event)"  class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required  >
+                              <label class="form-check-label" for="flexCheckChecked">
+                                <img src="assets/img/bag.png" alt="Image" class="image-icon"> Bacs
+                              </label>
+                            </div>
+
+                            <div *ngIf="bacCheked">
+                              <label for="">Quantité </label>
+                              <input type="Number" [(ngModel)]="rec.quantite" name="quantite" class="form-control" #quantite="ngModel" required>
+                              <span style="color:red;" *ngIf="quantite.invalid && quantite?.touched &&quantite.errors?.['required']">quantite est obligatoire</span>
+                            </div>
+                          </div>
+                          <div class="col-6" style="border-left: 2px solid;">
+                            <div class="form-check">
+                              <input (change)="palChange($event)" class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required >
+                              <label class="form-check-label" for="flexCheckChecked">
+                                <img src="assets/img/pal.png" alt="Image" class="image-icon"> Palettes
+                              </label>
+                            </div>
+                            <div class="row"  *ngIf="palCheked">
+                              <div class="col-6">
+                                <div class="form-check">
+                                  <input (change)="plasticChange($event)" class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    &nbsp;Plastique
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input (change)="boisChange($event)" class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" >
+                                  <label class="form-check-label" for="flexRadioDefault2">
+                                    &nbsp;Bois
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="form-check">
+                                  <input class="form-check-input" (change)="centChange($event)" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    &nbsp;120 x 100
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" (change)="quatrvinChange($event)" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" >
+                                  <label class="form-check-label" for="flexRadioDefault2">
+                                    &nbsp;120 x 80
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div *ngIf="palCheked">
+                              <label for="">Quantité </label>
+                              <input type="Number" [(ngModel)]="rec.quantite" name="quantite" class="form-control"#quantite="ngModel" required>
+                              <span style="color:red;" *ngIf="quantite.invalid && quantite?.touched &&quantite.errors?.['required']">quantite est obligatoire</span>
+                            </div>
+                          </div>
+                        </div>
+                       
+                      </div>
+                      <div class="col-4" style="margin-top: 25px;">
+
+                        <button class="btn btn-danger"   [disabled]="myForm.invalid" >Valider</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+        <!-- SVG separator -->
+  
+      </section>
+      <!-- 1st Hero Variation -->
+    </div>
+  
+  </main>
